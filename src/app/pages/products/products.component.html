@@ -1,1 +1,49 @@
-<p>products works!</p>
+<!-- Utilizando Angular Material -->
+ <!--<section class="products">
+    <mat-card class="card" *ngFor="let product of products">
+        <mat-card-header>
+           {{product.name}}
+        </mat-card-header>
+        <mat-card-content>
+            {{product.description}}
+        </mat-card-content>
+        <mat-card-actions>
+            Actions
+        </mat-card-actions>
+    </mat-card>
+</section> -->
+
+<!-- Utilizando tablas de angular material -->
+<div class="container">
+<table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <th scope="row">{{product.name}}</th>
+        <td>{{product.description}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.stock}}</td>
+        <td>
+        <button mat-flat-button color="primary">Editar</button>
+        </td>
+        <!-- <a href="" type="button" class="btn btn-sm btn-outline-secondary">E</a>
+        <a href="" type="button" class="btn btn-sm btn-outline-danger">D</a> -->
+        <td>
+            <button mat-flat-button color="accent">Eliminar</button>
+        </td>  
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

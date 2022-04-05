@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './button/button.component';
@@ -25,6 +26,7 @@ import { ProductComponent } from './pages/products/product/product.component';
     FormsModule,
     MaterialModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'productos', component: ProductsComponent },
       { path: '**', redirectTo: '', pathMatch: 'full'}
