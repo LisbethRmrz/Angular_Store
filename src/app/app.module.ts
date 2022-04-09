@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductComponent } from './pages/products/product/product.component';
+import { CartComponent } from './shared/components/cart/cart/cart.component';
+import { CheckoutModule } from './pages/checkout/checkout.module';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 @NgModule({
@@ -20,6 +23,7 @@ import { ProductComponent } from './pages/products/product/product.component';
     HeaderComponent,
     ProductsComponent,
     ProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +33,11 @@ import { ProductComponent } from './pages/products/product/product.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'productos', component: ProductsComponent },
+      {path: 'cart', component: CartComponent },
+      {path: 'checkout', component: CheckoutComponent},
       { path: '**', redirectTo: '', pathMatch: 'full'}
-    ])
+    ]),
+    CheckoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

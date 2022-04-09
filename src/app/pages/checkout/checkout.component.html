@@ -1,0 +1,85 @@
+<div class="container py-5">
+    <form action="">
+        <div class="row">
+            <div class="col-sm-6">
+            <mat-form-field appearance="legacy">
+                <input 
+                matInput
+                type="text"
+                placeholder="Name"
+                required
+                [(ngModel)]="model.name"
+                name="name"
+                #name="ngModel"
+                >
+                <mat-error *ngIf="!name.valid || name.pristine">Name is required</mat-error>
+            </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mt-3">       
+            <mat-radio-group class="form__element">
+                <div class="col-sm-12">
+                <p class="options">Elija una opción</p>
+                </div>
+                <div class="col-sm-4">
+                <mat-radio-button value="pickup" (change)="onPickupOrDelivery(false)">
+                    Pickup
+                </mat-radio-button>
+                </div>
+                <div class="col-sm-4">
+                <mat-radio-button value="delivery" (change)="onPickupOrDelivery(true)">
+                    Delivery
+                </mat-radio-button>
+                </div>
+            </mat-radio-group>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-6">
+            <mat-form-field appearance="legacy">
+                <input 
+                matInput
+                type="text"
+                placeholder="Shipping Address"
+                required
+                [(ngModel)]="model.shippingAddress"
+                name="shippingAddress"
+                #shippingAddress="ngModel"
+                >
+            </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-6">
+            <mat-form-field appearance="legacy">
+                <input 
+                matInput
+                type="text"
+                placeholder="City"
+                required
+                [(ngModel)]="model.city"
+                name="city"
+                #city="ngModel"
+                >
+            </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-6">
+            <mat-form-field appearance="legacy">
+                <mat-label>Seleccione una tienda</mat-label>
+                <mat-select 
+                name="store"
+                #store="ngModel"
+                [(ngModel)]="model.store">
+                    <mat-option [value]="" *ngFor="let tienda as tiendas"></mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+        </div>
+
+    </form>
+</div>
