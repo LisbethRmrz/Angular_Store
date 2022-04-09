@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Product } from 'src/app/pages/products/interfaces/product.interface';
 
 @Injectable(
@@ -10,9 +10,9 @@ providedIn: 'root'}
 export class ShoppingCartService {
 products: Product[] = []; //Array de productos tipado con la interface
 
-private cartSubject = new Subject<Product[]>();
-private totalSubject = new Subject<number>();
-private quantitySubject = new Subject<number>();
+private cartSubject = new BehaviorSubject<Product[]>([]);
+private totalSubject = new BehaviorSubject<number>(0);
+private quantitySubject = new BehaviorSubject<number>(0);
 
 //Los getter me devuelven un observable del valor que tengan
 get cartAction$():Observable<Product[]>{
@@ -36,17 +36,25 @@ this.quantityProducts();
 
 //Metodos para gestionar el total, agregar a carrito y cantidad
 private addToCart(product: Product):void{
-    this.products.push(product);
+    const ISPRODUCTINCART = this.products.find(({id}) => id === product.id);
+    if(ISPRODUCTINCART){
+        ISPRODUCTINCART.quantity += 1;
+    }
+    else{
+        //undefined
+        this.products.push({ ...product, quantity: 1});
+        this.cartSubject.next(this.products);
+    }
     this.cartSubject.next(this.products);
 }
 
 private calcTotal():void{
-const TOTAL = this.products.reduce((acc, prod)=> acc+=prod.price, 0);
+const TOTAL = this.products.reduce((acc, prod)=> acc+=(prod.price*prod.quantity), 0);
 this.totalSubject.next(TOTAL);
 }
 
 private quantityProducts():void{
-    const QUANTITY = this.products.length;
+    const QUANTITY = this.products.reduce((acc, prod) => acc+=prod.quantity,0 );
     this.quantitySubject.next(QUANTITY);
 }
  

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CheckoutComponent } from './checkout.component';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material.module';
+import { DetailsComponent } from './details/details.component';
 
 
 
@@ -10,6 +11,7 @@ import { MaterialModule } from 'src/material.module';
 @NgModule({
   declarations: [
     CheckoutComponent,
+    DetailsComponent,
   ],
   imports: [
     CommonModule,
