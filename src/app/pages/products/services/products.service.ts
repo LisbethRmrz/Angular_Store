@@ -13,5 +13,11 @@ export class ProductsService {
   getProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(this.apiURL);
   }
+
+  //patch es para modificar una propiedad especifica
+  updateStock(productId: number, stock: number):Observable<any>{
+    const body = {"stock": stock};
+    return this.http.patch<any>(`${this.apiURL}/${productId}`, body);
+  }
  
 }
