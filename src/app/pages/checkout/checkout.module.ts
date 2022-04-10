@@ -4,6 +4,7 @@ import { CheckoutComponent } from './checkout.component';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material.module';
 import { DetailsComponent } from './details/details.component';
+//import { ThankYouPageComponent } from './thank-you-page/thank-you-page.component';
 
 
 
@@ -12,6 +13,7 @@ import { DetailsComponent } from './details/details.component';
   declarations: [
     CheckoutComponent,
     DetailsComponent,
+    //ThankYouPageComponent,
   ],
   imports: [
     CommonModule,

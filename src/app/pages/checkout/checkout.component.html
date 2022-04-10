@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <form action="" (ngSumbit)="onSubmit()" #checkoutForm="ngForm" >
+    <form action="" #checkoutForm="ngForm" >
         <div class="row">
             <mat-form-field appearance="legacy">
                 <input 
@@ -15,10 +15,10 @@
             </mat-form-field>
         </div>
 
-        <div class="row mt-3">       
+        <div class="row mt-3">      
             <mat-radio-group class="form__element">
                 <p class="options">Elija una opción</p>
-                <mat-radio-button value="pickup" (change)="onPickupOrDelivery(false)">
+                <mat-radio-button value="pickup" (change)="onPickupOrDelivery(false)" checked>
                     Pickup
                 </mat-radio-button>
                 <mat-radio-button value="delivery" (change)="onPickupOrDelivery(true)">
@@ -27,46 +27,50 @@
             </mat-radio-group>
         </div>
 
-        <div class="row mt-3">
-            <mat-form-field appearance="legacy">
-                <input 
-                matInput
-                type="text"
-                placeholder="Shipping Address"
-                required
-                [(ngModel)]="model.shippingAddress"
-                name="shippingAddress"
-                #shippingAddress="ngModel"
-                >
-            </mat-form-field>
-        </div>
-
-        <div class="row mt-3">
-            <mat-form-field appearance="legacy">
-                <input 
-                matInput
-                type="text"
-                placeholder="City"
-                required
-                [(ngModel)]="model.city"
-                name="city"
-                #city="ngModel"
-                >
-            </mat-form-field>
-        </div>
-
-        <div class="row mt-3">
-            <mat-form-field appearance="legacy">
-                <mat-label>Seleccione una tienda</mat-label>
-                <mat-select 
-                name="store"
-                #store="ngModel"
-                [(ngModel)]="model.store">
-                    <mat-option [value]="tienda" *ngFor="let tienda of stores">{{tienda.name}} - {{tienda.openingHours}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-
+        <ng-container *ngIf="isDelivery; else showStores">
+            <div class="row mt-3">
+                <mat-form-field appearance="legacy">
+                    <input 
+                    matInput
+                    type="text"
+                    placeholder="Shipping Address"
+                    required
+                    [(ngModel)]="model.shippingAddress"
+                    name="shippingAddress"
+                    #shippingAddress="ngModel"
+                    >
+                </mat-form-field>
+            </div>
+    
+            <div class="row mt-3">
+                <mat-form-field appearance="legacy">
+                    <input 
+                    matInput
+                    type="text"
+                    placeholder="City"
+                    required
+                    [(ngModel)]="model.city"
+                    name="city"
+                    #city="ngModel"
+                    >
+                </mat-form-field>
+            </div>
+        </ng-container>
+        
+        <ng-template #showStores>
+            <div class="row mt-3">
+                <mat-form-field appearance="legacy">
+                    <mat-label>Seleccione una tienda</mat-label>
+                    <mat-select 
+                    name="store"
+                    #store="ngModel"
+                    [(ngModel)]="model.store">
+                        <mat-option [value]="tienda" *ngFor="let tienda of stores">{{tienda.name}} - {{tienda.openingHours}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </ng-template>
+        
     </form>
 </div>
 
@@ -82,6 +86,7 @@
         mat-raised-button
         color="accent"
         type="submit"
+        (click)="onSubmit(checkoutForm)"
         >
             Checkout
         </button>

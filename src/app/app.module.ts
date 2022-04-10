@@ -14,6 +14,7 @@ import { ProductComponent } from './pages/products/product/product.component';
 import { CartComponent } from './shared/components/cart/cart/cart.component';
 import { CheckoutModule } from './pages/checkout/checkout.module';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ThankYouPageComponent } from './pages/checkout/thank-you-page/thank-you-page.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     ProductsComponent,
     ProductComponent,
     CartComponent,
+    ThankYouPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
       {path: 'cart', component: CartComponent },
       { path: '', component: ProductsComponent },
       {path: 'checkout', component: CheckoutComponent},
+      { path: 'thank-you-page', component: ThankYouPageComponent},
       { path: '**', redirectTo: '', pathMatch: 'full'}
     ]),
     CheckoutModule
