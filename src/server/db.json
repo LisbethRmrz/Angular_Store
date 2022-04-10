@@ -223,6 +223,53 @@
       "date": "9/4/2022",
       "pickUp": false,
       "id": 10
+    },
+    {
+      "name": "Lisbeth",
+      "store": {
+        "id": 2,
+        "name": "Store Alcalá",
+        "address": "Calle de Alcalá, 21",
+        "city": "Madrid",
+        "openingHours": "10:00 - 14:00 and 17:00 - 20:30"
+      },
+      "date": "9/4/2022",
+      "pickUp": false,
+      "id": 11
+    },
+    {
+      "name": "Lisbeth",
+      "store": {
+        "id": 3,
+        "name": "Chambers and West Broadway",
+        "address": "125 Chambers Street",
+        "city": "New York",
+        "openingHours": "10:00 - 14:00 and 17:00 - 20:30"
+      },
+      "date": "9/4/2022",
+      "pickUp": false,
+      "id": 12
+    },
+    {
+      "name": "Lisbeth",
+      "store": {
+        "id": 1,
+        "name": "Park Row at Beekman St",
+        "address": "38 Park Row",
+        "city": "New York",
+        "openingHours": "10:00 - 14:00 and 17:00 - 20:30"
+      },
+      "date": "9/4/2022",
+      "isDelivery": false,
+      "id": 13
+    },
+    {
+      "name": "Lisbeth",
+      "shippingAddress": "ASa",
+      "city": "San Salvador",
+      "date": "9/4/2022",
+      "isDelivery": true,
+      "id": 14
     }
   ],
   "detailsOrders": [
@@ -305,6 +352,55 @@
       ],
       "orderId": 10,
       "id": 6
+    },
+    {
+      "details": [
+        {
+          "productId": 1,
+          "productName": "Essential TypeScript 4: From Beginner to Pro",
+          "quantity": 1
+        },
+        {
+          "productId": 2,
+          "productName": "Hackeando el cerebro de tus compradores: PsychoGrowth",
+          "quantity": 1
+        }
+      ],
+      "orderId": 11,
+      "id": 7
+    },
+    {
+      "details": [
+        {
+          "productId": 1,
+          "productName": "Essential TypeScript 4: From Beginner to Pro",
+          "quantity": 1
+        }
+      ],
+      "orderId": 12,
+      "id": 8
+    },
+    {
+      "details": [
+        {
+          "productId": 1,
+          "productName": "Essential TypeScript 4: From Beginner to Pro",
+          "quantity": 1
+        }
+      ],
+      "orderId": 13,
+      "id": 9
+    },
+    {
+      "details": [
+        {
+          "productId": 1,
+          "productName": "Essential TypeScript 4: From Beginner to Pro",
+          "quantity": 2
+        }
+      ],
+      "orderId": 14,
+      "id": 10
     }
   ]
 }

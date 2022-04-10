@@ -57,5 +57,11 @@ private quantityProducts():void{
     const QUANTITY = this.products.reduce((acc, prod) => acc+=prod.quantity,0 );
     this.quantitySubject.next(QUANTITY);
 }
+
+resetCart():void{
+    this.cartSubject.next([]);
+    this.totalSubject.next(0);
+    this.quantitySubject.next(0);
+}
  
 }
